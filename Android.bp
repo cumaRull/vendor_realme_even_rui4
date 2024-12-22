@@ -7,55 +7,10 @@ soong_namespace {
 	],
 }
 
-cc_prebuilt_library_shared {
-	name: "vendor.mediatek.hardware.power@1.1",
-	owner: "realme",
-	strip: {
-		none: true,
-	},
-	target: {
-		: {
-			srcs: ["proprietary/vendor/lib64/vendor.mediatek.hardware.power@1.1.so"],
-		},
-	},
-	compile_multilib: "64",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "vendor.mediatek.hardware.power@2.0",
-	owner: "realme",
-	strip: {
-		none: true,
-	},
-	target: {
-		: {
-			srcs: ["proprietary/vendor/lib64/vendor.mediatek.hardware.power@2.0.so"],
-		},
-	},
-	compile_multilib: "64",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-android_app_import {
-	name: "EngineerMode",
-	owner: "realme",
-	apk: "proprietary/priv-app/EngineerMode/EngineerMode.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-}
-
 android_app_import {
 	name: "ImsService",
 	owner: "realme",
-	apk: "proprietary/system/priv-app/ImsService/ImsService.apk",
+	apk: "proprietary/priv-app/ImsService/ImsService.apk",
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
@@ -66,129 +21,60 @@ android_app_import {
 dex_import {
 	name: "mediatek-common",
 	owner: "realme",
-	jars: ["proprietary/system/framework/mediatek-common.jar"],
+	jars: ["proprietary/framework/mediatek-common.jar"],
 }
 
 dex_import {
 	name: "mediatek-framework",
 	owner: "realme",
-	jars: ["proprietary/system/framework/mediatek-framework.jar"],
+	jars: ["proprietary/framework/mediatek-framework.jar"],
+}
+
+dex_import {
+	name: "mediatek-gwsd",
+	owner: "realme",
+	jars: ["proprietary/framework/mediatek-gwsd.jar"],
+}
+
+dex_import {
+	name: "mediatek-gwsdv2",
+	owner: "realme",
+	jars: ["proprietary/framework/mediatek-gwsdv2.jar"],
 }
 
 dex_import {
 	name: "mediatek-ims-base",
 	owner: "realme",
-	jars: ["proprietary/system/framework/mediatek-ims-base.jar"],
+	jars: ["proprietary/framework/mediatek-ims-base.jar"],
 }
 
 dex_import {
 	name: "mediatek-ims-common",
 	owner: "realme",
-	jars: ["proprietary/system/framework/mediatek-ims-common.jar"],
+	jars: ["proprietary/framework/mediatek-ims-common.jar"],
 }
 
 dex_import {
 	name: "mediatek-ims-extension-plugin",
 	owner: "realme",
-	jars: ["proprietary/system/framework/mediatek-ims-extension-plugin.jar"],
+	jars: ["proprietary/framework/mediatek-ims-extension-plugin.jar"],
 }
 
 dex_import {
 	name: "mediatek-telecom-common",
 	owner: "realme",
-	jars: ["proprietary/system/framework/mediatek-telecom-common.jar"],
+	jars: ["proprietary/framework/mediatek-telecom-common.jar"],
 }
 
 dex_import {
 	name: "mediatek-telephony-base",
 	owner: "realme",
-	jars: ["proprietary/system/framework/mediatek-telephony-base.jar"],
+	jars: ["proprietary/framework/mediatek-telephony-base.jar"],
 }
 
 dex_import {
 	name: "mediatek-telephony-common",
 	owner: "realme",
-	jars: ["proprietary/system/framework/mediatek-telephony-common.jar"],
-}
-
-prebuilt_etc_xml {
-	name: "android.hardware.neuralnetworks@1.3-service-mtk-mdla-dsp-gpu.xml",
-	owner: "realme",
-	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-mtk-mdla-dsp-gpu.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "android.hardware.usb@1.2-service-mediatekv2.xml",
-	owner: "realme",
-	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.usb@1.2-service-mediatekv2.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "lbs_hidl_service@1.0.xml",
-	owner: "realme",
-	src: "proprietary/vendor/etc/vintf/manifest/lbs_hidl_service@1.0.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "manifest_android.hardware.drm@1.4-service.widevine.xml",
-	owner: "realme",
-	src: "proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "manifest_hwcomposer.xml",
-	owner: "realme",
-	src: "proprietary/vendor/etc/vintf/manifest/manifest_hwcomposer.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "manifest_oplusSensor.xml",
-	owner: "realme",
-	src: "proprietary/odm/etc/vintf/manifest/manifest_oplusSensor.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	device_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "manifest_oplus_charger.xml",
-	owner: "realme",
-	src: "proprietary/odm/etc/vintf/manifest/manifest_oplus_charger.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	device_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "manifest_oplus_fingerprint.xml",
-	owner: "realme",
-	src: "proprietary/odm/etc/vintf/manifest/manifest_oplus_fingerprint.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	device_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "ormsHalService-default.xml",
-	owner: "realme",
-	src: "proprietary/odm/etc/vintf/manifest/ormsHalService-default.xml",
-	filename_from_src: true,
-	sub_dir: "vintf/manifest",
-	device_specific: true,
+	jars: ["proprietary/framework/mediatek-telephony-common.jar"],
 }
 
